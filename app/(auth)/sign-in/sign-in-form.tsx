@@ -11,6 +11,7 @@ import { Separator } from "@/components/ui/separator";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { SignInInput, signInSchema } from "../validation-schema";
+import { signIn } from "@/lib/auth";
 
 // -----------------------------
 // Zod Schema
@@ -19,6 +20,7 @@ import { SignInInput, signInSchema } from "../validation-schema";
 // -----------------------------
 // Component
 // -----------------------------
+
 export const SignInForm: React.FC = () => {
   const router = useRouter();
   const {
@@ -32,22 +34,22 @@ export const SignInForm: React.FC = () => {
   });
 
   const onSubmit = async (data: SignInInput) => {
-    // try {
-    //   const res = await signIn(data); // signIn should return { ok: boolean; error?: string }
+    try {
+      const res = await signIn(data);
 
-    //   if (!res.ok) {
-    //     toast.error(res.error || "Invalid credentials");
-    //     setError("email", { message: res.error });
-    //     setError("password", { message: res.error });
-    //     return;
-    //   }
+      if (!res.ok) {
+        toast.error(res.error || "Invalid credentials");
+        setError("email", { message: res.error });
+        setError("password", { message: res.error });
+        return;
+      }
 
-    //   toast.success("Signed in successfully!");
-    //   router.push("/dashboard"); // redirect after sign-in
-    // } catch (err) {
-    //   console.error(err);
-    //   toast.error("An unexpected error occurred");
-    // }
+      toast.success("Signed in successfully!");
+      router.push("/dashboard");
+    } catch (err) {
+      console.error(err);
+      toast.error("An unexpected error occurred");
+    }
   };
 
   return (
