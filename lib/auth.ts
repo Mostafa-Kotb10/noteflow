@@ -173,7 +173,15 @@ export const logout = async() => {
       }
     })
 
+    return {
+      ok: true,
+    }
+
   } catch(err) {
     console.log("erro ocured while logging out %s", err)
+    return {
+      ok: false,
+      error: err
+    }
   }
 }

@@ -12,6 +12,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { SignInInput, signInSchema } from "../validation-schema";
 import { signIn } from "@/lib/auth";
+import { LoadingButton } from "@/components/loading-button";
 
 // -----------------------------
 // Zod Schema
@@ -97,9 +98,9 @@ export const SignInForm: React.FC = () => {
 
             {/* Submit Button */}
             <Field orientation="horizontal">
-              <Button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? "Signing in..." : "Sign In"}
-              </Button>
+              <LoadingButton className="w-full" loading={isSubmitting}>
+                Sign In
+              </LoadingButton>
             </Field>
           </FieldGroup>
         </form>

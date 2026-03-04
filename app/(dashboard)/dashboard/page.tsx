@@ -1,3 +1,4 @@
+import Navbar from '@/components/navbar';
 import { getSession } from '@/lib/auth'
 import { redirect } from 'next/navigation';
 import React from 'react'
