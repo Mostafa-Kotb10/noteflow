@@ -10,7 +10,7 @@ const HeroCta = async () => {
       className="group relative py-6 px-6 hover:bg-primary-200 text-white font-bold text-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 overflow-hidden rounded-md"
       asChild
     >
-      <Link href="/dashboard" className="relative flex items-center justify-center">
+      <Link href="/sign-in" className="relative flex items-center justify-center">
         <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
 
        
@@ -34,7 +34,7 @@ const HeroCta = async () => {
       </Link>
     </Button>
 
-    <Button variant="outline" className="py-6 bg-white hover:bg-gray-50">
+    <Button variant="outline" className="hidden md:flex py-6 bg-white hover:bg-gray-50">
       <Link
         href="/how-it-works"
 

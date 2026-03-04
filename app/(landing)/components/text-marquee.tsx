@@ -1,5 +1,6 @@
 "use client"
 
+import Section from "@/components/section"
 import Marquee from "react-fast-marquee"
 
 export default function TextMarquee() {
@@ -11,7 +12,7 @@ export default function TextMarquee() {
   ]
 
   return (
-    <section className="overflow-hidden">
+    <Section className="overflow-hidden py-0">
       <Marquee className="bg-black" speed={50} gradient={false} pauseOnHover={true}>
         {items.map((text, i) => (
           <div key={i} className="flex  items-center gap-6 mr-12 py-8">
@@ -21,8 +22,16 @@ export default function TextMarquee() {
             <Separator />
           </div>
         ))}
+        {items.map((text, i) => (
+          <div key={i} className="flex  items-center gap-6 mr-12 py-8">
+            <span className="text-white text-4xl font-semibold uppercase tracking-wide">
+              {text}
+            </span>
+            <Separator />
+          </div>
+        ))}
       </Marquee>
-    </section>
+    </Section>
   )
 }
 

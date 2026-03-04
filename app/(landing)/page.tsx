@@ -1,8 +1,7 @@
 
-import FeaturesSection from "./features-section";
-import HeroSection from "./hero";
-import InfoSection from "./into-section";
-import TextMarquee from "./text-marquee";
+import FeaturesSection from "./features/features-section";
+import HeroSection from "./hero/hero";
+import TextMarquee from "./components/text-marquee";
 
 export default function Page() {
     return (
